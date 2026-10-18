@@ -1,0 +1,13 @@
+{
+  "venue": {
+    "name": "The Corner Table, York",
+    "policy": "Free cancellation until the free window before your booking. A later cancellation is excused, and the deposit refunded, only if you or someone in your party is ill, or if your train to York is cancelled. Anything else is not excused.",
+    "deposit": "20000000000000000",
+    "free_window": 300,
+    "grace": 300
+  },
+  "starts_in": 900,
+  "party": "A table for two at 7 pm",
+  "reason": "Our train to York this evening has been cancelled by the operator and there is no later service.",
+  "expected_ruling": "excused"
+}

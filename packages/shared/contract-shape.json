@@ -1,0 +1,104 @@
+{
+  "contract": "packages/contracts/noshow.py",
+  "note": "Generated from the contract source and deployments/studionet.json; packages/contracts/tests/test_shape.py fails if either drifts from this file.",
+  "constructor": {},
+  "writes": {
+    "register": {
+      "params": {
+        "name": "str",
+        "policy": "str",
+        "deposit": "u256",
+        "free_window": "u256",
+        "grace": "u256"
+      }
+    },
+    "book": {
+      "params": {
+        "venue_id": "u256",
+        "starts_in": "u256",
+        "party": "str"
+      },
+      "payable": true
+    },
+    "cancel": {
+      "params": {
+        "booking_id": "u256",
+        "reason": "str"
+      }
+    },
+    "seat": {
+      "params": {
+        "booking_id": "u256"
+      }
+    },
+    "settle": {
+      "params": {
+        "booking_id": "u256"
+      }
+    }
+  },
+  "views": {
+    "count": {
+      "params": {},
+      "returns": "u256"
+    },
+    "held_total": {
+      "params": {},
+      "returns": "u256"
+    },
+    "status": {
+      "params": {
+        "booking_id": "u256"
+      },
+      "returns": "str"
+    },
+    "venue": {
+      "params": {
+        "venue_id": "u256"
+      },
+      "returns": "dict",
+      "fields": [
+        "bookings",
+        "deposit",
+        "free_window",
+        "grace",
+        "id",
+        "name",
+        "policy",
+        "registered_at",
+        "restaurant"
+      ],
+      "sampled_from_record": [
+        "venue"
+      ]
+    },
+    "booking": {
+      "params": {
+        "booking_id": "u256"
+      },
+      "returns": "dict",
+      "fields": [
+        "booked_at",
+        "deposit",
+        "free_until",
+        "grace_until",
+        "guest",
+        "id",
+        "outcome",
+        "paid_to",
+        "party",
+        "reason",
+        "reason_is_leader_supplied",
+        "settled_at",
+        "starts_at",
+        "status",
+        "venue",
+        "why"
+      ],
+      "sampled_from_record": [
+        "bookings",
+        0
+      ]
+    }
+  }
+}

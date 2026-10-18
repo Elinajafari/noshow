@@ -1,0 +1,70 @@
+{
+  "network": "studionet",
+  "contract": "0xeC765790E7BBe8F123a4daEd9204F7b6b36766d5",
+  "accounts": {
+    "restaurant": "0x22b1664a16fba7D3512445E200739a965F2a4554",
+    "guest": "0x8df7A965a40D410c6102A83380F0d644c050a3dd"
+  },
+  "steps": [
+    {
+      "step": "venue 1: a new restaurant registers, a 0.02 GEN deposit",
+      "method": "register",
+      "from": "0x22b1664a16fba7D3512445E200739a965F2a4554",
+      "tx": "0x154f16f5ce23bbbf48e1aa5148ccb21d7ab10d028533e22bdbc6b4eaebfa02be",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "booking 5: a new guest books",
+      "method": "book",
+      "from": "0x8df7A965a40D410c6102A83380F0d644c050a3dd",
+      "tx": "0x325113cfc75f8a4422b447f517d2c92fda788799ce48ee9316650833169a0a91",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the restaurant tries to cancel it",
+      "method": "cancel",
+      "from": "0x22b1664a16fba7D3512445E200739a965F2a4554",
+      "tx": "0x475e8f58456dd90e8e8aac71ea159e4944087cd2f1804f64a521edd5fd496962",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] only the guest may cancel"
+    },
+    {
+      "step": "a late cancellation: a cancelled train (expected excused)",
+      "method": "cancel",
+      "from": "0x8df7A965a40D410c6102A83380F0d644c050a3dd",
+      "tx": "0x8a8f480eb58ba2d502e47eb25afd142ec0421e4ab157afbdca6507b6dc511321",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "bookings": {
+    "5": {
+      "booked_at": "2026-10-18T23:12:32Z",
+      "deposit": "20000000000000000",
+      "free_until": "2026-10-18T23:22:32Z",
+      "grace_until": "2026-10-18T23:32:32Z",
+      "guest": "0x8df7A965a40D410c6102A83380F0d644c050a3dd",
+      "id": 5,
+      "outcome": "excused",
+      "paid_to": "guest",
+      "party": "A table for two at 7 pm",
+      "reason": "Our train to York this evening has been cancelled by the operator and there is no later service.",
+      "reason_is_leader_supplied": true,
+      "settled_at": "2026-10-18T23:22:53Z",
+      "starts_at": "2026-10-18T23:27:32Z",
+      "status": "refunded",
+      "venue": 1,
+      "why": "The guest's reason matches the policy's specific exception regarding the cancellation of a train to York."
+    }
+  },
+  "balances": {
+    "guest_before": "980000000000000000",
+    "guest_after": "1000000000000000000"
+  }
+}

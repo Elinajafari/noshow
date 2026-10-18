@@ -1,0 +1,299 @@
+{
+  "clean_text": [
+    {
+      "raw": "  the battery\tis \n missing ",
+      "clean": "the battery is missing"
+    },
+    {
+      "raw": "bell\u0007x",
+      "clean": "bell x"
+    },
+    {
+      "raw": "café   ok",
+      "clean": "café ok"
+    },
+    {
+      "raw": "ab",
+      "clean": "a b"
+    },
+    {
+      "raw": "",
+      "clean": ""
+    },
+    {
+      "raw": "\u0001\u0002",
+      "clean": ""
+    },
+    {
+      "raw": "  Tome un comprimido\tdos veces al día ",
+      "clean": "Tome un comprimido dos veces al día"
+    }
+  ],
+  "normalise_choice": [
+    {
+      "raw": "0",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "1",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": " [1] ",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": "#0",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "(1)",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": "2",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "-1",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "as_described",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "0 or 1",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "007",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "1.0",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "<0 or 1>",
+      "n": 2,
+      "choice": ""
+    }
+  ],
+  "option_of": [
+    {
+      "choice": "",
+      "order": [
+        "excused",
+        "not_excused"
+      ],
+      "option": ""
+    },
+    {
+      "choice": "0",
+      "order": [
+        "excused",
+        "not_excused"
+      ],
+      "option": "excused"
+    },
+    {
+      "choice": "1",
+      "order": [
+        "excused",
+        "not_excused"
+      ],
+      "option": "not_excused"
+    },
+    {
+      "choice": "",
+      "order": [
+        "not_excused",
+        "excused"
+      ],
+      "option": ""
+    },
+    {
+      "choice": "0",
+      "order": [
+        "not_excused",
+        "excused"
+      ],
+      "option": "not_excused"
+    },
+    {
+      "choice": "1",
+      "order": [
+        "not_excused",
+        "excused"
+      ],
+      "option": "excused"
+    }
+  ],
+  "fold": [
+    {
+      "forward": "",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "excused",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "not_excused",
+      "folded": ""
+    },
+    {
+      "forward": "excused",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "excused",
+      "reverse": "excused",
+      "folded": "excused"
+    },
+    {
+      "forward": "excused",
+      "reverse": "not_excused",
+      "folded": "not_excused"
+    },
+    {
+      "forward": "not_excused",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "not_excused",
+      "reverse": "excused",
+      "folded": "not_excused"
+    },
+    {
+      "forward": "not_excused",
+      "reverse": "not_excused",
+      "folded": "not_excused"
+    }
+  ],
+  "ruling_sound": [
+    {
+      "ruling": "excused",
+      "sound": true
+    },
+    {
+      "ruling": "not_excused",
+      "sound": true
+    },
+    {
+      "ruling": "",
+      "sound": false
+    },
+    {
+      "ruling": "Excused",
+      "sound": false
+    },
+    {
+      "ruling": "0",
+      "sound": false
+    },
+    {
+      "ruling": "free",
+      "sound": false
+    },
+    {
+      "ruling": "no_show",
+      "sound": false
+    }
+  ],
+  "phase": [
+    {
+      "now": 0,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "free"
+    },
+    {
+      "now": 900,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "free"
+    },
+    {
+      "now": 901,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "late"
+    },
+    {
+      "now": 1500,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "late"
+    },
+    {
+      "now": 1501,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "started"
+    },
+    {
+      "now": 2100,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "started"
+    },
+    {
+      "now": 2101,
+      "starts_at": 1500,
+      "free_window": 600,
+      "grace": 600,
+      "phase": "over"
+    }
+  ],
+  "payee": [
+    {
+      "outcome": "free",
+      "payee": "guest"
+    },
+    {
+      "outcome": "excused",
+      "payee": "guest"
+    },
+    {
+      "outcome": "not_excused",
+      "payee": "restaurant"
+    },
+    {
+      "outcome": "seated",
+      "payee": "guest"
+    },
+    {
+      "outcome": "no_show",
+      "payee": "restaurant"
+    }
+  ]
+}

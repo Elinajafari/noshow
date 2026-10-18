@@ -1,0 +1,49 @@
+{
+  "venue": {
+    "name": "Osteria Nove, Leeds",
+    "policy": "Cancel up to the free window before your booking and your deposit comes back in full. A later cancellation is excused, and the deposit refunded, if you or someone in your party is ill or injured, if a train or flight you were booked on is cancelled, or if a severe weather warning advises against travel. A change of plans, a better offer elsewhere, or forgetting is not excused.",
+    "deposit": "50000000000000000",
+    "free_window": 1200,
+    "grace": 600
+  },
+  "starts_in": 2100,
+  "wrong_deposit": "10000000000000000",
+  "parties": {
+    "ann": "Ann, a table for two at 8 pm",
+    "ben": "Ben, a table for four at 8 pm",
+    "cal": "Cal, a table for two at 8 pm",
+    "dev": "Dev, a table for three at 8 pm",
+    "eve": "Eve, a table for two at 8 pm",
+    "stranger": "A table for six at 8 pm"
+  },
+  "reasons": {
+    "ann": "Our plans changed this weekend, sorry to cancel.",
+    "ben": "Our daughter woke up with a fever of 39 degrees and the doctor told us to keep her at home tonight.",
+    "cal": "Some friends invited us to a different restaurant tonight, so we will not need the table after all.",
+    "dev": "We could not make it in the end, our evening ran late."
+  },
+  "steps": [
+    {"who": "restaurant", "method": "register", "expect": "ok", "step": "venue 0: Osteria Nove, a 0.05 GEN deposit"},
+    {"who": "restaurant", "method": "book", "party": "stranger", "expect": "refused", "step": "the restaurant books its own table"},
+    {"who": "ann", "method": "book", "party": "ann", "expect": "ok", "step": "booking 0: Ann"},
+    {"who": "ben", "method": "book", "party": "ben", "expect": "ok", "step": "booking 1: Ben"},
+    {"who": "cal", "method": "book", "party": "cal", "expect": "ok", "step": "booking 2: Cal"},
+    {"who": "dev", "method": "book", "party": "dev", "expect": "ok", "step": "booking 3: Dev"},
+    {"who": "eve", "method": "book", "party": "eve", "expect": "ok", "step": "booking 4: Eve"},
+    {"who": "stranger", "method": "book", "party": "stranger", "wrong": true, "expect": "refused", "step": "a booking paying the wrong deposit"},
+    {"who": "ann", "method": "cancel", "id": 0, "reason": "ann", "expect": "ok", "step": "Ann cancels in the free window"},
+    {"who": "stranger", "method": "cancel", "id": 1, "reason": "ben", "expect": "refused", "step": "a stranger cancels Ben's booking"},
+    {"who": "restaurant", "method": "seat", "id": 2, "expect": "refused", "step": "a guest seated during free cancellation"},
+    {"who": "ben", "method": "cancel", "id": 1, "reason": "ben", "expect": "ok", "step": "Ben cancels late: a child with a fever", "after": ["free_until", 2]},
+    {"who": "cal", "method": "cancel", "id": 2, "reason": "cal", "expect": "ok", "step": "Cal cancels late: a better offer"},
+    {"who": "dev", "method": "cancel", "id": 3, "reason": "dev", "expect": "refused", "step": "Dev cancels after the booking started", "after": ["starts_at", 4]},
+    {"who": "restaurant", "method": "seat", "id": 4, "expect": "ok", "step": "Eve is seated"},
+    {"who": "stranger", "method": "settle", "id": 3, "expect": "refused", "step": "a settlement during Dev's grace period"},
+    {"who": "restaurant", "method": "seat", "id": 3, "expect": "refused", "step": "Dev seated after the grace period", "after": ["grace_until", 3]},
+    {"who": "stranger", "method": "settle", "id": 3, "expect": "ok", "step": "Dev's booking settled: a no-show"}
+  ],
+  "expected_rulings": [
+    "excused",
+    "not_excused"
+  ]
+}
